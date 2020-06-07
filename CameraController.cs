@@ -2,8 +2,6 @@
 
 public class CameraController : MonoBehaviour
 {
-    private bool doMovement = true;
-
     public float panSpeed = 30f;
     public float panBorderThickness = 10f;
 
@@ -14,13 +12,9 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if(GameManager.GameIsOver)
         {
-            doMovement = !doMovement;
-        }
-
-        if(!doMovement)
-        {
+            this.enabled = false;
             return;
         }
 
